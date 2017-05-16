@@ -1,0 +1,12 @@
+.button {
+    -fx-min-width: 110px;
+}
+
+.button, .label, .text-field, .password-field {
+    -fx-font-size: 16px;
+    -fx-font-family: "Arial";
+}
+
+#messageLabel {
+    -fx-text-fill: red;
+}

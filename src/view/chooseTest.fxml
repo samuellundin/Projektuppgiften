@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.ListView?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml al"
+            fx:controller="controllers.takeTestController">
+    <padding>
+        <Insets bottom="10" left="10" right="10" top="10"/>
+    </padding>
+    <top>
+        <Label textAlignment="CENTER" text="Välj prov bland nedanstående alternativ:"/>
+    </top>
+    <center>
+        <GridPane alignment="center" hgap="10" vgap="10">
+            <ListView fx:id="chooseTestList">
+            </ListView>
+        </GridPane>
+    </center>
+</BorderPane>
+
+
+
+
+
+
+
+
+

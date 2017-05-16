@@ -1,0 +1,88 @@
+.button {
+    -fx-min-width: 100px;
+    -fx-min-height: 100px;
+    -fx-padding: 3 30 3 30;
+    -fx-border-radius: 5px;
+    -fx-border-width: 2px;
+    -fx-border-color: black;
+    -fx-border-insets: -1px;
+    -fx-background-color:
+            rgba(0, 0, 0, 0.08),
+            linear-gradient(#9a9a9a, #909090),
+            linear-gradient(white 0%, #f3f3f3 50%, #ececec 51%, #f2f2f2 100%);
+    -fx-background-insets: 0 0 -1 0, 0, 1;
+    -fx-background-radius: 5, 5, 4;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #DCDCDC;
+}
+
+.buttonLabel {
+    -fx-font-size: 16px;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.root {
+    -fx-background-color: #295b9a;
+}
+
+#welcomeLabel {
+    -fx-font-size: 36px;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.addTestButton {
+    -fx-background-image: url("/res/addTest_icon.png");
+}
+
+.editTestButton {
+    -fx-background-image: url("/res/editTest_icon.png");
+}
+
+.gradeTestButton {
+    -fx-background-image: url("/res/gradeTest_icon.png");
+}
+
+.shareTestButton {
+    -fx-background-image: url("/res/shareTest_icon.png");
+}
+
+.addUserButton {
+    -fx-background-image: url("/res/addUser_icon.png");
+}
+
+.editUserButton {
+    -fx-background-image: url("/res/editUser_icon.png");
+}
+
+.addGroupButton {
+    -fx-background-image: url("/res/addGroup_icon.png");
+}
+
+.editGroupButton {
+    -fx-background-image: url("/res/editGroup_icon.png");
+}
+
+.takeTestButton {
+    -fx-background-image: url("/res/takeTest_icon.png");
+}
+
+.showResultButton {
+    -fx-background-image: url("/res/resultTest_icon.png");
+}
+
+.settingsButton {
+    -fx-background-image: url("/res/settings_icon.png");
+}
+
+.logoutButton {
+    -fx-background-image: url("/res/logout_icon.png");
+}

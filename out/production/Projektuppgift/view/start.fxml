@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+
+<?import javafx.scene.control.SeparatorMenuItem?>
+<BorderPane fx:controller="controllers.Controller" stylesheets="/styles/startStyle.css"
+            xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+    <top>
+        <MenuBar>
+            <Menu text="Test">
+                <MenuItem text="Add Test"/>
+                <MenuItem text="Edit Test"/>
+                <MenuItem text="Grade Test"/>
+                <MenuItem text="Share Test"/>
+            </Menu>
+            <Menu text="User">
+                <MenuItem text="Add User"/>
+                <MenuItem text="Edit User"/>
+                <SeparatorMenuItem/>
+                <MenuItem text="Add Group"/>
+                <MenuItem text="Edit Group"/>
+            </Menu>
+            <Menu text="More">
+                <MenuItem text="Take Test"/>
+                <MenuItem text="Show Result"/>
+                <MenuItem text="Settings"/>
+                <MenuItem text="Logout"/>
+            </Menu>
+        </MenuBar>
+    </top>
+    <center>
+        <VBox spacing="15" alignment="CENTER">
+            <Label fx:id="welcomeLabel" alignment="CENTER" text="Welcome!"/>
+            <GridPane alignment="CENTER" hgap="15" vgap="15">
+                <Button onAction="#addTestAction" styleClass="addTestButton" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <Button onAction="#editTestAction" styleClass="editTestButton" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                <Button onAction="#gradeTestAction" styleClass="gradeTestButton" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                <Button onAction="#shareTestAction" styleClass="shareTestButton" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+                <Label text="Add Test" styleClass="buttonLabel" GridPane.halignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <Label text="Edit Test" styleClass="buttonLabel" GridPane.halignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                <Label text="Grade Test" styleClass="buttonLabel" GridPane.halignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                <Label text="Share Test" styleClass="buttonLabel" GridPane.halignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+            </GridPane>
+            <GridPane alignment="CENTER" hgap="15" vgap="15">
+                <Button onAction="#addUserAction" styleClass="addUserButton" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <Button onAction="#editUserAction" styleClass="editUserButton" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                <Button onAction="#addGroupAction" styleClass="addGroupButton" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                <Button onAction="#editGroupAction" styleClass="editGroupButton" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+                <Label text="Add User" styleClass="buttonLabel" GridPane.halignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <Label text="Edit User" styleClass="buttonLabel" GridPane.halignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                <Label text="Add Group" styleClass="buttonLabel" GridPane.halignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                <Label text="Edit Group" styleClass="buttonLabel" GridPane.halignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+            </GridPane>
+            <GridPane alignment="CENTER" hgap="15" vgap="15">
+                <Button onAction="#takeTestAction" styleClass="takeTestButton" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <Button onAction="#showResultAction" styleClass="showResultButton" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                <Button onAction="#settingsAction" styleClass="settingsButton" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                <Button onAction="#logoutAction" styleClass="logoutButton" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+                <Label text="Take Test" styleClass="buttonLabel" GridPane.halignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <Label text="Results" styleClass="buttonLabel" GridPane.halignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                <Label text="Settings" styleClass="buttonLabel" GridPane.halignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                <Label text="Logout" styleClass="buttonLabel" GridPane.halignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+            </GridPane>
+        </VBox>
+    </center>
+</BorderPane>
