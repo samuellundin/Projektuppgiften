@@ -64,3 +64,11 @@ src/META-INF/persistence.xml
 src/META-INF/persistence.xml
 
 .idea/workspace.xml
+
+.idea/libraries/JPA.xml
+
+.idea/workspace.xml
+
+src/entities/StudentTest.java
+
+.idea/libraries/JPA.xml
