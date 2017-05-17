@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane fx:controller="controllers.SettingsController" stylesheets="/styles/loginStyle.css" alignment="CENTER" hgap="20" vgap="20"
+          xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+    <Label text="Current password:" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <Label text="New password:" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <Label text="Confirm new password:" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <TextField fx:id="settingsField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+    <PasswordField fx:id="currentPasswordField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+    <PasswordField fx:id="newPasswordField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <PasswordField fx:id="confirmNewPasswordField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <HBox spacing="10" alignment="CENTER_RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="3">
+        <Button text="Cancel" onAction="#cancelAction"/>
+        <Button text="Save" onAction="#saveAction"/>
+    </HBox>
+</GridPane>

@@ -1,7 +1,6 @@
 package controllers;
 
 import entities.User;
-import entities.UserGroup;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -29,7 +28,7 @@ public class AddGroupController implements Initializable{
     public void initialize(URL location, ResourceBundle resources){
 
         UserService userService = new UserService();
-        List<User> users = userService.getAllUsers();
+        List<User> users = userService.getUsers();
         observableCandidates = FXCollections.observableArrayList();
         for(User u: users){
             observableCandidates.add(u);
