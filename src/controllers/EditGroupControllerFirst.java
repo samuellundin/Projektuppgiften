@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import services.UserGroupService;
 
@@ -55,28 +56,40 @@ public class EditGroupControllerFirst implements Initializable{
             UserGroup userGroupToEdit = candidates.getSelectionModel().getSelectedItem();
             if(userGroupToEdit != null) {
 
-
+                /*
                 //Parent root = FXMLLoader.load(getClass().getResource("../view/editGroupSecond.fxml"));
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/editGroupSecond.fxml"));
 
                 Parent root = loader.load();
 
                 //Pass id to second controller
-                EditGroupControllerSecond editGroupControllerSecond = loader.getController();
+                EditGroupControllerSecond editGroupControllerSecond = loader.<EditGroupControllerSecond>getController();
                 //editGroupControllerSecond.setUserGroupId(userGroupToEdit.getUserGroupId());
                 editGroupControllerSecond.setUserGroupToEdit(userGroupToEdit);
-                /*
-                EditGroupControllerSecond editGroupControllerSecond = new EditGroupControllerSecond();
-                editGroupControllerSecond.setUserGroupToEdit(userGroupToEdit);
-                FXMLLoader loader = new FXMLLoader();
-                loader.setController(editGroupControllerSecond);
-                Parent root = loader.load();
-                */
+
 
                 Stage stage = (Stage) candidates.getScene().getWindow();
                 stage.setScene(new Scene(root, 750, 600));
                 stage.setTitle("Edit group");
                 stage.show();
+                */
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/editGroupSecond.fxml"));
+                Stage stage = (Stage) candidates.getScene().getWindow();
+
+                EditGroupControllerSecond editGroupControllerSecond = new EditGroupControllerSecond();
+                editGroupControllerSecond.setUserGroupToEdit(userGroupToEdit);
+
+                loader.setController(editGroupControllerSecond);
+
+                GridPane root = loader.load();
+
+                stage.setScene(new Scene(root, 750, 600));
+
+                stage.show();
+
+
+
             }
         } catch (IOException e){
             e.printStackTrace();

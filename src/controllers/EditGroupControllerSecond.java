@@ -2,6 +2,7 @@ package controllers;
 
 import entities.User;
 import entities.UserGroup;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 
@@ -28,8 +30,6 @@ public class EditGroupControllerSecond implements Initializable{
 
     private ObservableList<User> observableChosenUsers;
 
-    private int userGroupId;
-
     private UserGroup userGroupToEdit;
 
 
@@ -39,22 +39,46 @@ public class EditGroupControllerSecond implements Initializable{
     @FXML
     private ListView<User> chosen;
 
+    @FXML
+    private TextField groupNameField;
+
     @Override public void initialize(URL location, ResourceBundle resources){
 
-        //List<User> userList = userGroupToEdit.getUserList();
-        /*
+        List<User> userList = userGroupToEdit.getUserList();
+        observableChosenUsers = FXCollections.observableArrayList();
         for(User u: userList){
             observableChosenUsers.add(u);
+            System.out.println("u = " + u.getFirstName());
         }
-        */
-        //chosen.setItems(observableChosenUsers);
+        chosen.setItems(observableChosenUsers);
+
+        groupNameField.setText(userGroupToEdit.getUser());
+
+        observableCandidatesUsers = FXCollections.observableArrayList();
+
+        candidates.setItems(observableCandidatesUsers);
+
 
     }
 
     public void left(ActionEvent actionEvent) {
+        User potential = candidates.getSelectionModel().getSelectedItem();
+        if(potential != null){
+            candidates.getSelectionModel().clearSelection();
+            observableCandidatesUsers.remove(potential);
+            observableChosenUsers.add(potential);
+
+        }
     }
 
     public void right(ActionEvent actionEvent) {
+
+        User potential = chosen.getSelectionModel().getSelectedItem();
+        if(potential != null){
+            candidates.getSelectionModel().clearSelection();
+            observableChosenUsers.remove(potential);
+            observableCandidatesUsers.add(potential);
+        }
     }
 
     public void cancelAction(ActionEvent actionEvent) {
@@ -78,14 +102,6 @@ public class EditGroupControllerSecond implements Initializable{
             e.printStackTrace();
         }
 
-    }
-
-    public int getUserGroupId() {
-        return userGroupId;
-    }
-
-    public void setUserGroupId(int userGroupId) {
-        this.userGroupId = userGroupId;
     }
 
     public UserGroup getUserGroupToEdit() {
