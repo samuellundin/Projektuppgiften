@@ -1,6 +1,7 @@
 package services;
 
 import entities.User;
+import entities.UserGroup;
 
 import javax.persistence.*;
 import java.util.List;
@@ -10,9 +11,18 @@ public class UserService {
     private EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("persistence");
     private EntityManager entityManager = managerFactory.createEntityManager();
 
-    public List<User> getAllUsers(){
+    public List<User> getUsers(){
         try {
             TypedQuery<User> query = entityManager.createQuery("SELECT u FROM User u", User.class);
+            return query.getResultList();
+        } catch (NoResultException ex) {
+            return null;
+        }
+    }
+
+    public List<UserGroup> getUserGroups(){
+        try {
+            TypedQuery<UserGroup> query = entityManager.createQuery("SELECT u FROM UserGroup u", UserGroup.class);
             return query.getResultList();
         } catch (NoResultException ex) {
             return null;

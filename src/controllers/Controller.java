@@ -5,8 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 
 public class Controller {
@@ -15,15 +15,7 @@ public class Controller {
     private Label welcomeLabel;
 
     public void addTestAction() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("../view/test.fxml"));
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root, 640, 480));
-            stage.setTitle("Add Test");
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        fxmlLoader("../view/test.fxml", "Add Test", 640, 480);
     }
 
     public void editTestAction() {
@@ -33,60 +25,26 @@ public class Controller {
     }
 
     public void shareTestAction() {
+        fxmlLoader("../view/shareTest.fxml", "Share Test", 640, 480);
     }
 
     public void addUserAction() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("../view/user.fxml"));
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root, 400, 400));
-            stage.setTitle("Add User");
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        fxmlLoader("../view/user.fxml", "Add User", 400, 400);
     }
 
     public void editUserAction() {
     }
 
     public void addGroupAction() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("../view/addGroup.fxml"));
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root, 750, 600));
-            stage.setTitle("Add group");
-
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.show();
-        } catch (IOException e){
-            e.printStackTrace();
-        }
+        fxmlLoader("../view/addGroup.fxml", "Add Group", 750, 600);
     }
 
     public void editGroupAction() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("../view/editGroupFirst.fxml"));
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root, 750, 600));
-            stage.setTitle("Edit group");
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.show();
-        } catch (IOException e){
-            e.printStackTrace();
-        }
+        fxmlLoader("../view/editGroupFirst.fxml", "Edit Group", 750, 600);
     }
 
     public void takeTestAction() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("../view/chooseTest.fxml"));
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root, 800, 600));
-            stage.setTitle("Add group");
-            stage.show();
-        } catch (IOException e){
-            e.printStackTrace();
-        }
+        fxmlLoader("../view/chooseTest.fxml", "Take Test", 800, 600);
     }
 
     public void showResultAction() {
@@ -96,7 +54,6 @@ public class Controller {
     }
 
     public void logoutAction() {
-
         try {
             Stage thisStage = (Stage) welcomeLabel.getScene().getWindow();
             thisStage.close();
@@ -107,9 +64,19 @@ public class Controller {
             stage.show();
         } catch (IOException e){
             e.printStackTrace();
-
         }
+    }
 
+    private void fxmlLoader(String url, String title, int width, int height) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource(url));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root, width, height));
+            stage.setTitle(title);
+            stage.show();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
 }
