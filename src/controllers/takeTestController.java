@@ -54,7 +54,7 @@ public class takeTestController implements Initializable {
         fxmlLoader.setController(this);
         try {
             Parent root = (Parent) fxmlLoader.load();
-            Scene testScene = new Scene(root, 640, 490);
+            Scene testScene = new Scene(root, 800, 600);
 
         } catch (IOException e) {
             e.printStackTrace();

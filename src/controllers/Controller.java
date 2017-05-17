@@ -71,7 +71,7 @@ public class Controller {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../view/chooseTest.fxml"));
             Stage stage = new Stage();
-            stage.setScene(new Scene(root, 400, 200));
+            stage.setScene(new Scene(root, 800, 600));
             stage.setTitle("Add group");
             stage.show();
         } catch (IOException e){
