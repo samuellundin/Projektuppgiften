@@ -3,9 +3,6 @@ package entities;
 import javax.persistence.*;
 import java.util.List;
 
-/**
- * Created by josef on 5/9/2017.
- */
 
 @Entity
 @Table
