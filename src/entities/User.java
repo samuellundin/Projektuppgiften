@@ -15,6 +15,7 @@ public class User {
     private String email;
     private String password;
     private int role;
+    public static User sessionUser;
 
     public User(String firstName, String lastName, String email, String password, int role) {
         super();

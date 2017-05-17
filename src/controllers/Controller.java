@@ -51,6 +51,16 @@ public class Controller {
     }
 
     public void settingsAction() {
+
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../view/settings.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root, 400, 200));
+            stage.setTitle("Settings");
+            stage.show();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     public void logoutAction() {

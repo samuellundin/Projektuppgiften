@@ -30,6 +30,7 @@ public class LoginController {
         if(user != null) {
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("../view/start.fxml"));
+                User.sessionUser = user;
                 Stage stage = (Stage) messageLabel.getScene().getWindow();
                 stage.setScene(new Scene(root, 800, 600));
                 stage.setTitle("Start");
