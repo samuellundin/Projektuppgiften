@@ -3,11 +3,21 @@ package services;
 import entities.User;
 
 import javax.persistence.*;
+import java.util.List;
 
 public class UserService {
 
     private EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("persistence");
     private EntityManager entityManager = managerFactory.createEntityManager();
+
+    public List<User> getAllUsers(){
+        try {
+            TypedQuery<User> query = entityManager.createQuery("SELECT u FROM User u", User.class);
+            return query.getResultList();
+        } catch (NoResultException ex) {
+            return null;
+        }
+    }
 
     public User login(String email, String password) {
         try {
