@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane fx:controller="controllers.EditGroupControllerSecond" stylesheets="/styles/addGroupStyle.css" alignment="CENTER" hgap="20" vgap="20"
+<GridPane stylesheets="/styles/addGroupStyle.css" alignment="CENTER" hgap="20" vgap="20"
           xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
     <HBox spacing="10" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.columnSpan="3">
         <Label text="Group name:"/>
