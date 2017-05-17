@@ -50,4 +50,15 @@ out/production/Projektuppgift/view/test.fxml
 Projektuppgift.iml
 
 out/production/Projektuppgift/view/test.fxml
+<<<<<<< Updated upstream
 .idea/workspace.xml
+=======
+
+.idea/libraries/lib.xml
+
+src/META-INF/persistence.xml
+>>>>>>> Stashed changes
+
+src/META-INF/persistence.xml
+
+src/META-INF/persistence.xml
