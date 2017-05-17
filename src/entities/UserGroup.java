@@ -20,6 +20,10 @@ public class UserGroup {
     @OneToMany(targetEntity = User.class)
     private List userList;
 
+    @Override
+    public String toString(){
+        return name;
+    }
 
     public int getUserGroupId() {
         return userGroupId;
