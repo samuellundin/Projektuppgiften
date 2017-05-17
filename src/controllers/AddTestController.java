@@ -18,7 +18,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class TestController implements Initializable {
+public class AddTestController implements Initializable {
 
     @FXML
     private TextField titleField;

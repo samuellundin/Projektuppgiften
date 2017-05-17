@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Button?>
+<GridPane alignment="CENTER" hgap="25" prefHeight="480" prefWidth="640" vgap="20"
+          fx:controller="controllers.ShareTestController" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+    <Label text="Test:" GridPane.halignment="RIGHT" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <ComboBox promptText="Select a Test" minWidth="415" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+    <Label text="Share To:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <ComboBox promptText="Select Group/Student" minWidth="415" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <ListView maxWidth="180" maxHeight="225"/>
+        <VBox spacing="10" alignment="CENTER">
+            <Button minWidth="32" minHeight="32"/>
+            <Button minWidth="32" minHeight="32"/>
+        </VBox>
+        <ListView maxWidth="180" maxHeight="225"/>
+    </HBox>
+</GridPane>

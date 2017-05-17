@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 
 <GridPane alignment="CENTER" hgap="25" prefHeight="480" prefWidth="640" vgap="20"
-          fx:controller="controllers.TestController" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+          fx:controller="controllers.AddTestController" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
     <Label text="Title:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
     <Label text="Date:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
     <Label text="Time:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
