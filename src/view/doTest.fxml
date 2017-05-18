@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml al"
+            fx:controller="controllers.doTestController">
+    <padding>
+        <Insets bottom="10" left="10" right="10" top="10"/>
+    </padding>
+    <top>
+        <Label fx:id="doTestTopLabel" textAlignment="CENTER"/>
+    </top>
+    <center>
+        <GridPane fx:id="doTest" alignment="center" hgap="10" vgap="10">
+        </GridPane>
+    </center>
+    <bottom>
+        <Label fx:id="doTestBottomLabel" textAlignment="RIGHT"/>
+    </bottom>
+</BorderPane>
