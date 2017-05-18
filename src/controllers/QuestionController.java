@@ -125,6 +125,7 @@ public class QuestionController implements Initializable {
             question.setAnswerList(getAnswerList());
 
             test.getQuestionList().add(question);
+            nextQuestionAction();
             reset();
         }
     }
