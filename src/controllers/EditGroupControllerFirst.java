@@ -9,6 +9,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -18,6 +20,7 @@ import services.UserGroupService;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
@@ -56,24 +59,6 @@ public class EditGroupControllerFirst implements Initializable{
             UserGroup userGroupToEdit = candidates.getSelectionModel().getSelectedItem();
             if(userGroupToEdit != null) {
 
-                /*
-                //Parent root = FXMLLoader.load(getClass().getResource("../view/editGroupSecond.fxml"));
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/editGroupSecond.fxml"));
-
-                Parent root = loader.load();
-
-                //Pass id to second controller
-                EditGroupControllerSecond editGroupControllerSecond = loader.<EditGroupControllerSecond>getController();
-                //editGroupControllerSecond.setUserGroupId(userGroupToEdit.getUserGroupId());
-                editGroupControllerSecond.setUserGroupToEdit(userGroupToEdit);
-
-
-                Stage stage = (Stage) candidates.getScene().getWindow();
-                stage.setScene(new Scene(root, 750, 600));
-                stage.setTitle("Edit group");
-                stage.show();
-                */
-
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/editGroupSecond.fxml"));
                 Stage stage = (Stage) candidates.getScene().getWindow();
 
@@ -93,6 +78,24 @@ public class EditGroupControllerFirst implements Initializable{
             }
         } catch (IOException e){
             e.printStackTrace();
+        }
+    }
+
+    public void delete(ActionEvent actionEvent) {
+        UserGroup userGroupToDelete = candidates.getSelectionModel().getSelectedItem();
+        if(userGroupToDelete!=null){
+
+            Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmation.setTitle("Confirm delete");
+            confirmation.setHeaderText("Confirming will delete choosen group.");
+            confirmation.setContentText("Continue?");
+            Optional<ButtonType> result = confirmation.showAndWait();
+            if (result.get()== ButtonType.OK){
+                candidates.getSelectionModel().clearSelection();
+                observableUserGroups.remove(userGroupToDelete);
+                UserGroupService userGroupService = new UserGroupService();
+                userGroupService.deleteUserGroup(userGroupToDelete.getUserGroupId());
+            }
         }
     }
 }

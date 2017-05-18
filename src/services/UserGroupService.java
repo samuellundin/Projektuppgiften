@@ -16,6 +16,28 @@ public class UserGroupService {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistence");
     EntityManager entityManager = emf.createEntityManager();
 
+    public void deleteUserGroup(int userGroupId){
+        UserGroup userGroup = entityManager.find(UserGroup.class, userGroupId);
+        entityManager.getTransaction().begin();
+        entityManager.remove(userGroup);
+        entityManager.getTransaction().commit();
+    }
+
+    public void updateUserGroup(int userGroupId ,String name, ObservableList<User> observableChosen){
+
+        List<User> userList = new ArrayList<>();
+        for(User user: observableChosen){
+            userList.add(user);
+        }
+
+        UserGroup userGroup = entityManager.find(UserGroup.class, userGroupId);
+        entityManager.getTransaction().begin();
+        userGroup.setUserList(userList);
+        userGroup.setUser(name);
+        entityManager.getTransaction().commit();
+
+    }
+
     public void addUserGroup(String name, ObservableList<User> observableChosen){
         UserGroup userGroup = new UserGroup();
         userGroup.setUser(name);

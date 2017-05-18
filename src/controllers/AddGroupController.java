@@ -24,6 +24,7 @@ public class AddGroupController implements Initializable{
     private ObservableList<User> observableCandidates;
     private ObservableList<User> observableChosen;
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources){
 
@@ -57,12 +58,17 @@ public class AddGroupController implements Initializable{
 
     public void save(ActionEvent actionEvent) {
         String groupName = groupNameField.getText();
-        if(groupName.length()>0){
+        if(groupName.length()>0 && !observableChosen.isEmpty()){
             UserGroupService userGroupService = new UserGroupService();
             userGroupService.addUserGroup(groupName, observableChosen);
             groupNameField.setText("");
-        }else{
+            ObservableList<User> observableRemove = FXCollections.observableArrayList();
+            for(User u: observableChosen){
 
+                observableRemove.add(u);
+                observableCandidates.add(u);
+            }
+            observableChosen.removeAll(observableRemove);
         }
     }
 

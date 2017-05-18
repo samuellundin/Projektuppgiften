@@ -13,6 +13,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import services.UserGroupService;
+import services.UserService;
 
 
 import java.io.IOException;
@@ -26,9 +28,9 @@ import java.util.ResourceBundle;
  */
 public class EditGroupControllerSecond implements Initializable{
 
-    private ObservableList<User> observableCandidatesUsers;
+    private ObservableList<User> observableCandidates;
 
-    private ObservableList<User> observableChosenUsers;
+    private ObservableList<User> observableChosen;
 
     private UserGroup userGroupToEdit;
 
@@ -44,19 +46,25 @@ public class EditGroupControllerSecond implements Initializable{
 
     @Override public void initialize(URL location, ResourceBundle resources){
 
-        List<User> userList = userGroupToEdit.getUserList();
-        observableChosenUsers = FXCollections.observableArrayList();
-        for(User u: userList){
-            observableChosenUsers.add(u);
-            System.out.println("u = " + u.getFirstName());
-        }
-        chosen.setItems(observableChosenUsers);
-
         groupNameField.setText(userGroupToEdit.getUser());
 
-        observableCandidatesUsers = FXCollections.observableArrayList();
+        //Populate observable list with users from choosen group
+        List<User> userList = userGroupToEdit.getUserList();
+        observableChosen = FXCollections.observableArrayList();
+        for(User u: userList){
+            observableChosen.add(u);
+        }
+        chosen.setItems(observableChosen);
 
-        candidates.setItems(observableCandidatesUsers);
+        observableCandidates = FXCollections.observableArrayList();
+        UserService userService = new UserService();
+        List<User> allUsers = userService.getUsers();
+        for(User u: allUsers){
+            if(!userList.contains(u)){
+                observableCandidates.add(u);
+            }
+        }
+        candidates.setItems(observableCandidates);
 
 
     }
@@ -65,8 +73,8 @@ public class EditGroupControllerSecond implements Initializable{
         User potential = candidates.getSelectionModel().getSelectedItem();
         if(potential != null){
             candidates.getSelectionModel().clearSelection();
-            observableCandidatesUsers.remove(potential);
-            observableChosenUsers.add(potential);
+            observableCandidates.remove(potential);
+            observableChosen.add(potential);
 
         }
     }
@@ -76,8 +84,8 @@ public class EditGroupControllerSecond implements Initializable{
         User potential = chosen.getSelectionModel().getSelectedItem();
         if(potential != null){
             candidates.getSelectionModel().clearSelection();
-            observableChosenUsers.remove(potential);
-            observableCandidatesUsers.add(potential);
+            observableChosen.remove(potential);
+            observableCandidates.add(potential);
         }
     }
 
@@ -87,8 +95,10 @@ public class EditGroupControllerSecond implements Initializable{
     }
 
     public void save(ActionEvent actionEvent) {
-        System.out.println(userGroupToEdit.getUserGroupId());
-        List<User> userList = userGroupToEdit.getUserList();
+        if(groupNameField.getText().length()>0 && !observableChosen.isEmpty()) {
+            UserGroupService userGroupService = new UserGroupService();
+            userGroupService.updateUserGroup(userGroupToEdit.getUserGroupId(), groupNameField.getText(), observableChosen);
+        }
     }
 
     public void backAction(ActionEvent actionEvent) {

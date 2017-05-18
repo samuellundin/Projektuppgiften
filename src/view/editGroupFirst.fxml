@@ -12,6 +12,7 @@
     <HBox spacing="10" alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="1">
         <Button text="cancel" onAction="#cancelAction"/>
         <Button text="edit" onAction="#edit"/>
+        <Button text="delete" onAction="#delete"/>
     </HBox>
 
 
